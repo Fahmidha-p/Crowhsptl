@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+  background: #fffbe6;
+  font-family: sans-serif;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.title {
+  font-size: 50px;
+  color: #2c3e50;
+  background: #f9ca24;
+  padding: 20px 30px;
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px #f6e58d;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: dropIn 1s ease-out forwards;
+}
+
+.quote {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #555;
+  opacity: 0;
+  animation: fadeIn 2s ease 1s forwards;
+}
+
+.text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #333;
+}
+
+img {
+  display: block;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+form {
+  margin: 30px auto;
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Fredoka One', cursive;
+  cursor: pointer;
+}
+
+.department-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  display: inline-block;
+  text-align: left;
+}
+
+.department-list li {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+@keyframes dropIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.hidden {
+  display: none;
+}
+
+.doctor {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #ffeaa7;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CrowCare Hospital</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 class="title animate">CrowCare Hospital 🐦🏥</h1>
+<p class="quote">"Emergency? Just caw us!"</p>
+
+<img src="crow.png" alt="Crow patient" width="250">
+<audio id="crowSound" autoplay style="display: none;">
+  <source src="crow.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+
+    <p class="text">Welcome to the world's first useless hospital made just for crows.</p>
+
+    <h2>Departments</h2>
+    <ul class="text">
+      <li>🧠 Wing Psychology</li>
+      <li>🦷 Beak Dentistry</li>
+      <li>🛏️ Nest Rest Lounge</li>
+      <li>😵 Window Crash Emergency</li>
+    </ul>
+
+
+    <form>
+      <label>Crow Name:</label><br>
+      <input type="text" placeholder="Eg: Blacky"><br>
+      <label>Problem:</label><br>
+      <input type="text" placeholder="Eg: Flap fatigue"><br>
+      <button>Admit</button>
+    </form>
+
+    <p>🖤 This website is completely useless and we love it.</p>
+
+
+
+    <script>
+    window.addEventListener("load", function() {
+      const audio = document.getElementById("crowSound");
+
+      // Some browsers require play to be triggered by a user gesture
+      // Try playing with promise-based handling
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log("Crow sound played!");
+        }).catch((error) => {
+          console.log("Autoplay was blocked 😅. User must interact first.");
+        });
+      }
+    });
+  </script>
+  </body>
+</html>

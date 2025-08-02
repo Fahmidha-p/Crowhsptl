@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assigned Crow Doctor</title>
+  <style>
+    body {
+      font-family: 'Fredoka One', cursive;
+      text-align: center;
+      background: #fffbe6;
+      padding: 40px;
+    }
+
+    .card {
+      background: #ffeaa7;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      display: inline-block;
+      max-width: 400px;
+    }
+
+    .card h2 {
+      color: #2c3e50;
+      font-size: 28px;
+    }
+
+    .card p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>👨‍⚕️ Assigned Doctor</h2>
+    <p id="docName"></p>
+    <p id="docSpecialty"></p>
+    <p id="forCrow"></p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const problem = urlParams.get("disease")?.toLowerCase() || "";
+    const crowName = urlParams.get("name") || "Unknown Crow";
+
+    const doctors = {
+      "beak": { name: "Dr. Kaakku Jose", specialty: "Chief Surgeon – Beak Operations" },
+      "eye": { name: "Dr. Kannappan Kaakka", specialty: "Eye Specialist" },
+      "egg": { name: "Dr. Muttakaakka", specialty: "Egg Laying Dept. Head" },
+      "mind": { name: "Dr. Kaakkaraajan", specialty: "Mind Therapist" },
+      "ent": { name: "Dr. Kaaki Baby", specialty: "ENT Specialist" }
+    };
+
+    let matchedDoctor = null;
+
+    if (problem.includes("beak")) matchedDoctor = doctors.beak;
+    else if (problem.includes("eye")) matchedDoctor = doctors.eye;
+    else if (problem.includes("egg")) matchedDoctor = doctors.egg;
+    else if (problem.includes("mind") || problem.includes("stress")) matchedDoctor = doctors.mind;
+    else if (problem.includes("ent") || problem.includes("ear") || problem.includes("nose")) matchedDoctor = doctors.ent;
+
+    if (matchedDoctor) {
+      document.getElementById("docName").textContent = `👤 ${matchedDoctor.name}`;
+      document.getElementById("docSpecialty").textContent = `🩺 ${matchedDoctor.specialty}`;
+    } else {
+      document.getElementById("docName").textContent = "👤 Dr. Unknown";
+      document.getElementById("docSpecialty").textContent = "🩺 General Crow Physician";
+    }
+
+    document.getElementById("forCrow").textContent = `🐦 Patient: ${crowName}`;
+  </script>
+
+</body>
+</html>

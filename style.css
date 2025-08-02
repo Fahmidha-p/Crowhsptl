@@ -1,0 +1,101 @@
+
+  
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+  background: #fffbe6;
+  font-family: 'Fredoka One', cursive;
+  padding-top: 60px;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  color: #2c3e50;
+  text-shadow: 2px 2px #f6e58d;
+  background: #f9ca24;
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: dropIn 1s ease-out forwards;
+}
+
+.quote {
+  font-size: 22px;
+  margin-top: 30px;
+  color: #555;
+  opacity: 0;
+  animation: fadeIn 2s ease 1s forwards;
+}
+
+@keyframes dropIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  color: #111;
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+button {
+  padding: 6px 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+audio {
+  display: block;
+  margin: 20px auto;
+}
+
+h1 {
+  font-size: 40px;
+  color: #111;
+}
+
+ ul  {
+  margin-bottom: 8px;
+  justify-content: center;
+} 
+
+.text{
+    font-family: 'Courier New', Courier, monospace;
+}
+

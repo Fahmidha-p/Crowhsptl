@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CrowCare Hospital</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+  <h1 class="title">CrowCare Hospital 🐦🏥</h1>
+  <p class="quote">"Emergency? Just caw us!"</p>
+
+  <img src="crow.png" alt="Crow patient" width="250">
+
+  <audio id="crowSound" autoplay style="display: none;">
+    <source src="crow.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <p class="text">Welcome to the world's first useless hospital made just for crows.</p>
+
+  <h2>Departments</h2>
+  <ul class="text department-list">
+    <li>🧠 Wing Psychology</li>
+    <li>🦷 Beak Dentistry</li>
+    <li>🛏️ Nest Rest Lounge</li>
+    <li>😵 Window Crash Emergency</li>
+  </ul>
+
+  
+    <form id="admitForm">
+      <label>Crow Name:</label><br>
+      <input type="text" id="crowName" placeholder="Eg: Blacky" required><br>
+      <label>disease:</label><br>
+      <input type="text" id="disease" placeholder="Eg: Eye pain" required><br>
+      <button type="submit">Admit</button>
+    </form>
+
+  
+  <div id="doctorCard" class="doctor hidden">
+    <h3>👨‍⚕️ Assigned Crow Doctor</h3>
+    <p id="docName"></p>
+    <p id="docSpecialty"></p>
+    <p id="docDepartment"></p>
+  </div>
+
+
+  <p class="text">🖤 This website is completely useless and we love it.</p>
+
+  <script>
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("crowSound");
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log("Crow sound played!");
+        }).catch(() => {
+          console.log("Autoplay was blocked 😅. User must interact first.");
+        });
+      }
+    });
+
+    const doctors = [
+      { name: "Dr. Kaakku Jose", specialty: "Chief Surgeon – Beak Operations", disease: "beak" },
+      { name: "Dr. Kannappan Kaakka", specialty: "Eye Specialist", disease: "eye" },
+      { name: "Dr. Muttakaakka", specialty: "Egg Laying Dept. Head", disease: "egg" },
+      { name: "Dr. Kaakkaraajan", specialty: "Mind Therapist", disease: "mind" },
+      { name: "Dr. Kaaki Baby", specialty: "ENT Specialist", disease: "ent" }
+    ];
+
+    document.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const problemInput = document.querySelector("input[placeholder='Eg: Flap fatigue']").value.toLowerCase();
+      const doctorCard = document.getElementById("doctorCard");
+      const docName = document.getElementById("docName");
+      const docSpecialty = document.getElementById("docSpecialty");
+
+      const matchedDoc = doctors.find(doc => problemInput.includes(doc.disease));
+
+      if (matchedDoc) {
+        docName.textContent = `Name: ${matchedDoc.name}`;
+        docSpecialty.textContent = `Specialty: ${matchedDoc.specialty}`;
+      } else {
+        docName.textContent = "Dr. Unknown";
+        docSpecialty.textContent = "General Crow Physician";
+      }
+
+      doctorCard.classList.remove("hidden");
+    });
+    document.getElementById("admitForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent the form from submitting normally
+
+      const name = document.getElementById("crowName").value.trim();
+      const disease = document.getElementById("disease").value.trim();
+
+      // Redirect to doctor.html and pass data in the URL
+      if (name && disease) {
+        const url = `doctor.html?name=${encodeURIComponent(name)}&disease=${encodeURIComponent(disease)}`;
+        window.location.href = url;
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>
